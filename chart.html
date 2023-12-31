@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Income and Expense Pie Chart</title>
+</head>
+<body>
+
+<canvas id="myPieChart" width="200" height="200"></canvas>
+
+<script>
+  // Your data object
+  const data = {
+    Name: "ARYA",
+    Email: "ARYA@135",
+    Password: "123",
+    Balance: 49000,
+    Spent: 7000,
+    Expense: {
+      1: {Type: "EMI", Amount: 6000, balance: 50000, date_time: "Sat Dec 30 2023 15:46:56 "},
+      // ... other expense items
+    },
+    Income: {
+      1: {Type: "SALARY", Amount: 56000, balance: 56000, date_time: "Sat Dec 30 2023 15:46:43 "}
+      // ... other income items
+    },
+  };
+
+  // Extracting income types and amounts for the pie chart
+  const incomeTypes = Object.values(data.Income).map(income => income.Type);
+  const incomeAmounts = Object.values(data.Income).map(income => income.Amount);
+
+  // Extracting expense types and amounts for the pie chart
+  const expenseTypes = Object.values(data.Expense).map(expense => expense.Type);
+  const expenseAmounts = Object.values(data.Expense).map(expense => expense.Amount);
+
+  // Creating a pie chart
+  const ctx = document.getElementById('myPieChart').getContext('2d');
+  const myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: [...incomeTypes, ...expenseTypes],
+      datasets: [{
+        data: [...incomeAmounts, ...expenseAmounts],
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.8)', // Income color
+          'rgba(255, 99, 132, 0.8)', // Expense color
+          // Add more colors as needed
+        ],
+      }],
+    },
+  });
+</script>
+
+</body>
+</html>

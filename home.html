@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Budget Calculator</title>
+    <style>
+        *{
+           
+        }
+         input {
+            margin-left: 35%;
+            opacity: 0.7;
+        }
+        input:hover{
+        box-shadow: 2px 2px 3px rgb(182, 240, 255);
+       }
+        .bg{
+           
+           box-shadow: 3px 2px lightblue;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        body{
+           
+          background-image: url(); 
+            background-size:contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        #first{
+            
+        }
+        #icontainer{
+            
+            background-image: url(https://img.freepik.com/free-vector/happy-rich-banker-celebrating-income-growth_74855-5867.jpg?w=740&t=st=1703830594~exp=1703831194~hmac=f1de54175b0c922a1a8c20702c4d710919e3e6768c83770969c681b59f854735);
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size:cover;
+          
+        }
+        #econtainer{
+            background-image: url(https://img.freepik.com/premium-vector/rebate-program-consumer-benefit-selling-discount-concept-money-saving-cash-back-service_186332-733.jpg);
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: cover;
+           
+        }
+        table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+
+    th {
+      background-color: rgb(253, 242, 233);
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+      color:rgba(13, 148, 148, 0.8);
+    }
+    tr {
+      background-color:rgba(236, 136, 198, 0.7);
+      border: 1px solid white;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(69, 179, 157,0.9);
+      border: 1px solid white;
+      color: white;
+    }
+
+    /* Style for table cells */
+    td {
+      padding: 10px;
+      border: 1px solid white;
+    }
+    .card{
+        border:none;
+        
+    }
+    #income2{
+      
+        border-radius: 50%;
+        background-repeat: no-repeat;
+            background-position:center;
+            background-size:cover;
+            width:120px;
+            height:80px;
+            color:goldenrod;
+          
+            box-shadow:3px 3px silver;
+            border:none;
+            font-size: larger;
+            font-weight: bold;
+            
+    }
+   input{
+    text-align: center;
+    align-self: center;
+   }
+   @keyframes spin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.rotated-span {
+  display: inline-block;
+  /* Optional: Add a smooth transition effect */
+  transition: transform 1s ease-in-out;
+}
+
+.spin-animation {
+  animation: spin 2s ease-in-out;
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <button id="out"type="button" class="btn mt-2 text-light" data-mdb-ripple-init style="margin-left:90%;background-color:#bde2e2 " onclick="redirect_login()">Logout</button></div>
+    <div class="row d-flex "id="first">
+      
+            <div class="col-3">
+               
+        </div>
+    <div class="row text-center mt-5 ">
+
+        
+          <h2 class="text-center"style="margin-left:10px;color:#85C1E9 ">Budget<span style="color:rgba(215, 189, 226)"> Buddy</span>  <span><img src="https://static.vecteezy.com/system/resources/previews/016/136/787/non_2x/money-calculation-icon-in-comic-style-budget-banking-cartoon-illustration-on-white-isolated-background-financial-payment-splash-effect-business-concept-vector.jpg" width="100px"height="100px"></span> 
+        </h2>
+        
+    </div>
+    <div class="row d-flex text-center m-2">
+        <div class="col-1">
+</div>
+<div class="col-4">
+
+
+            <div id="icontainer" class="card" style="width: 28rem;">
+                <div class="card-body">
+                  <h3 class="card-title mb-5"style="color:#2980B9 ">Total Balance</h3>
+    
+                  <span id="total_balance" class="rotated-span text-center p-5 fs-4  " style="color:rgb(87, 60, 2);width:200px; opacity: 0.9;height:120px;background-image: url(./—Pngtree—dollar\ coin\ icon\ 3d_7966148.png);background-size:cover;background-repeat: no-repeat;background-position: center;">Rs.0</span>
+
+                  <h4 class="mt-2"style="color:#1ABC9C "></h4>
+                  <input type="text" class="form-control w-50 ms-1 "placeholder="Enter income type" id="income">
+                 <input type="text" class="form-control w-50 m-1"placeholder="Enter amount" id="income_amount">
+                 <button id="income2" class="" onclick="income()"style=" background-color:rgba(133, 193, 233,0.7);">INCOME+</button>
+        
+                </div>
+            </div>
+    </div>
+    <div class="col-1">
+    </div>
+        <div class="col-4">
+
+            <div class="card" style="width:100%;">
+                <div class="card-body"id="econtainer">
+                  <h3 class="card-title mb-5"style="color:#8E44AD">Total Expense</h3>
+                  <span id="total_expense"class="rotated-span text-center text-dark p-5 fs-4 "style="color:rgb(87, 60, 2);width:200px;opacity: 0.9;height:120px;background-image: url(./—Pngtree—dollar\ coin\ icon\ 3d_7966148.png);background-size:cover;background-repeat: no-repeat;background-position: center;">Rs.0</span>
+                  <h4 class="mt-2"style="color:#C0392B"></h4>
+                  <input type="text" class="form-control w-50 m-1"placeholder="Enter income type" id="expense">
+                  <input type="text" class="form-control w-50 m-1"placeholder="Enter amount" id="expense_amount">
+                  <button id="income2" class=""onclick="expense()"style="  background-color:rgba(215, 189, 226 ,0.8);">EXPENSE+</button>
+        
+                </div>
+              </div>
+            
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="text-center "><button class="rounded border border-none text-center m-1 p-2 text-light" style="background-color: #bde2e2;"onclick="clear_ALL()">Clear All</button>
+    
+        <hr>
+    <div class="text-center fs-3 mt-3"style="color:rgba(13, 148, 148, 0.8)">Income and Expense Details
+        <span><img src="https://img.freepik.com/free-vector/money-income-attraction_74855-6573.jpg?size=626&ext=jpg&ga=GA1.1.1803636316.1701302400&semt=ais" width="350px"height="250px"></span>
+       
+    
+    
+    </div>
+    <div class="row d-flex m-5">
+        <div class="col-1"></div>
+        <div class="col-4">
+            <h4 class="" style="color:rgba(255, 99, 132, 0.6)">Income</h4>
+            <table >
+                <tr><thead >
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Balance</th>
+                    <th>Date & Time</th>
+                </thead>
+            </tr>
+                <tbody id="result_income">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-4">
+            <h4 class=""style="color:rgba(255, 99, 132, 0.6)">Expense</h4>
+            <table>
+                <tr><thead>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Balance</th>
+                    <th>Date & Time</th> 
+                </thead></tr>
+                <tbody id="result_expense">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <hr>
+    <div class="text-center fs-2 mt-3 "style="color:rgba(69, 179, 157,0.9)">Budget Analysis</div>
+    <div style=" width:100%; height:400px;background-image:url(https://img.freepik.com/premium-vector/budget-financial-analyst-managing-planning-spending-money-checklist-clipboard-calculator-calendar-background-vector-illustration_2175-1866.jpg?w=740);background-size: contain;background-position: center; background-repeat: no-repeat;">
+    <div class="graph" style="width:350px;height:190px;margin-left:40%;"class="mt-5">
+        <canvas id="myPieChart" class="mt-3"></canvas>
+    </div>
+   
+    <script src="./script.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spin Balance</title>
+  <style>
+    @keyframes spin {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    .rotated-span {
+      display: inline-block;
+      /* Optional: Add a smooth transition effect */
+      transition: transform 1s ease-in-out;
+    }
+
+    .spin-animation {
+      animation: spin 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="rotateSpan()">Rotate</button>
+  <span id="total_balance" class="rotated-span">Total Balance: $100</span>
+
+  <script>
+    function rotateSpan() {
+  var span = document.getElementById("total_balance");
+
+  // Add the spin-animation class to trigger the sideways spin
+  span.classList.add("spin-animation");
+
+  // After a short delay, remove the spin-animation class
+  setTimeout(function () {
+    span.classList.remove("spin-animation");
+  }, 1000); // Set the delay to match the spin animation duration
+}
+
+  </script>
+</body>
+</html>
